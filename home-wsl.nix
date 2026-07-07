@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports = [ ./home.nix ];
-  home.username = "atnatewoss";
-  home.homeDirectory = "/home/atnatewoss";
+  home.username = lib.mkForce "atnatewoss";
+  home.homeDirectory = lib.mkForce "/home/atnatewoss";
 }
