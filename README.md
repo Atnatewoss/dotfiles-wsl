@@ -71,6 +71,31 @@ Edit the config files in place, then apply:
 That's it.
 No separate build-and-copy step.
 
+## WSL / Windows setup
+
+The same user-level config (shell, git, starship, Neovim, etc.) also works on
+WSL2/Ubuntu via a separate home-manager target. System-level config
+(nix-darwin, Homebrew) is skipped — only `home.nix` is applied.
+
+### Prerequisites
+
+- Windows with WSL2 installed (`wsl --install -d Ubuntu`)
+- Inside Ubuntu: [Determinate Nix](https://install.determinate.systems/nix) installed
+
+### First switch
+
+```sh
+git clone -b port/wsl2-windows https://github.com/Atnatewoss/dotfiles.git ~/dotfiles
+ln -sfn ~/dotfiles ~/.dotfiles
+nix run home-manager/release-26.05 -- switch --flake ~/.dotfiles#you@wsl
+```
+
+### Daily use
+
+```sh
+home-manager switch --flake ~/.dotfiles#you@wsl
+```
+
 ## Make it yours
 
 This repo is mine.
