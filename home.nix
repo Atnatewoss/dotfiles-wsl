@@ -5,8 +5,6 @@ let
 in
 
 {
-  home.username = "kunchen";
-  home.homeDirectory = "/Users/kunchen";
   home.stateVersion = "24.11";
   home.packages = with pkgs; [
     # cli i use constantly
